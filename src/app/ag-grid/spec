@@ -1,0 +1,34 @@
+import { TestBed } from '@angular/core/testing';
+import { DateFilter } from './date.filter';
+
+describe('DateFilter', () => {
+    it('should filter date', () => {
+        // Arrange
+        const valueToFilter = '1/1/18';
+        const filter = 'contains';
+        const modelDateValue = '2018-01-01';
+        const expectedResponse = true;
+
+        // Act
+        const caller = DateFilter.filterParams;
+        const returnValue = caller.textCustomComparator(filter, modelDateValue, valueToFilter);
+
+        // Assert
+        expect(returnValue).toBeTruthy();
+    });
+
+    it('should not return date when filtered', () => {
+        // Arrange
+        const valueToFilter = '1/1/19';
+        const filter = 'contains';
+        const modelDateValue = '2018-01-01';
+        const expectedResponse = true;
+
+        // Act
+        const caller = DateFilter.filterParams;
+        const returnValue = caller.textCustomComparator(filter, modelDateValue, valueToFilter);
+
+        // Assert
+        expect(returnValue).toBeFalsy();
+    });
+});

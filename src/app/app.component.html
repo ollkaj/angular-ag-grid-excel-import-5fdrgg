@@ -1,0 +1,13 @@
+<ag-grid-angular 
+    style="width: 500px; height: 550px;" 
+    class="ag-theme-balham"
+    [rowData]="rowData" 
+    [gridOptions]="gridOptions"
+    [modules]="modules"
+    (gridReady)="onGridReady($event)">
+</ag-grid-angular>
+<input hidden type="file"
+           id="file"
+           #file
+           (change)="importExcel($event)">
+ <button (click)="file.click()">Import Excel</button>
